@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
-
+#include <cstdio>
 const int WIDTH = 400;
 static const int HEIGHT = 400;
 static const int CHANNELS = 4; // RGBA
@@ -19,6 +19,8 @@ EMSCRIPTEN_KEEPALIVE
    void init_canvas() {
       size_t size = WIDTH * HEIGHT * CHANNELS;
       g_buffer = static_cast<uint8_t*>(malloc(size));
+
+   printf("Canvas initialized with size: %zu bytes\n", size);
 
       for (size_t i = 0; i < size; i += CHANNELS) {
          g_buffer[i + 0] = 220;
