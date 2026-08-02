@@ -29,4 +29,18 @@ EMSCRIPTEN_KEEPALIVE
          g_buffer[i + 3] = 255;
       }
    }
+EMSCRIPTEN_KEEPALIVE
+uint8_t* get_buffer_ptr() {
+   return g_buffer;
+}
+
+EMSCRIPTEN_KEEPALIVE
+int get_width() {
+   return WIDTH;
+}
+
+EMSCRIPTEN_KEEPALIVE
+int get_height() {
+   return HEIGHT;
+}
 }
