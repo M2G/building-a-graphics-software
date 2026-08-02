@@ -1,13 +1,7 @@
-#include <cstdio>
-#include <iostream>
-#include <ostream>
-
-extern "C" {
-    void init_canvas();
-}
+#include "scene.h"
+#include "cstdio"
 
 int main() {
-    init_canvas();
 
     return 0;
 }
