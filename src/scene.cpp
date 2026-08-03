@@ -8,13 +8,37 @@ int Scene::addObject(SceneObject obj) {
 }
 
 bool Scene::removeObject(int id) {
-
+    auto it = std::find_if(m_objects.begin(), m_objects.end(),
+        [id](const SceneObject& obj) { return obj.id == id; });
+    if (it == m_objects.end()) {
+        return false;
+    }
+    m_objects.erase(it);
+    return true;
 }
 
 SceneObject* Scene::getObject(int id) {
-
+    auto it = std::find_if(m_objects.begin(), m_objects.end(),
+        [id](const SceneObject& obj) { return obj.id == id; });
+    return (it != m_objects.end()) ? &(*it) : nullptr;
 }
 
-const std::vector<SceneObject*>& Scene::getObjects() const {}
+const std::vector<SceneObject>& Scene::getAllObjects() const {
+    return m_objects;
+}
 
-std::optional<int> hitTest(float x, float y) const {}
+std::optional<int> Scene::hitTest(float x, float y) const {
+    for (auto it = m_objects.rbegin(); it != m_objects.rend(); ++it) {
+        const SceneObject& obj = *it;
+
+        switch (obj.type) {
+            case ObjectType::RECT: {}
+            case ObjectType::ELLIPSE: {}
+            case ObjectType::LINE:
+            case ObjectType::STROKE:
+                break;
+
+        }
+    }
+    return std::nullopt;
+}
