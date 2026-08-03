@@ -32,7 +32,13 @@ std::optional<int> Scene::hitTest(float x, float y) const {
         const SceneObject& obj = *it;
 
         switch (obj.type) {
-            case ObjectType::RECT: {}
+            case ObjectType::RECT: {
+                // https://en.wikipedia.org/wiki/Hit-testing
+                bool inside = (x >= obj.x && x <= obj.x + obj.width &&
+                    y >= obj.y && y <= obj.y + obj.height);
+                if (inside) return obj.id;
+                break;
+            }
             case ObjectType::ELLIPSE: {}
             case ObjectType::LINE:
             case ObjectType::STROKE:
