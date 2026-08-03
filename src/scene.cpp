@@ -39,7 +39,15 @@ std::optional<int> Scene::hitTest(float x, float y) const {
                 if (inside) return obj.id;
                 break;
             }
-            case ObjectType::ELLIPSE: {}
+            case ObjectType::ELLIPSE: {
+                // https://www.geeksforgeeks.org/dsa/check-if-a-point-is-inside-outside-or-on-the-ellipse/
+                // // Équation normalisée de l'ellipse : ((x-cx)/rx)^2 + ((y-cy)/ry)^2 <= 1
+                float cx = (obj.x + obj.width) / 2.0f;
+                float cy = (obj.y + obj.height) / 2.0f;
+                float rx = obj.width / 2.0f;
+                float ry = obj.height / 2.0f;
+                // ...
+            }
             case ObjectType::LINE:
             case ObjectType::STROKE:
                 break;
