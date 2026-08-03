@@ -47,6 +47,7 @@ std::optional<int> Scene::hitTest(float x, float y) const {
                 float rx = obj.width / 2.0f;
                 float ry = obj.height / 2.0f;
                 // ...
+                if (rx <= 0.0f || ry <= 0.0f) break;
             }
             case ObjectType::LINE:
             case ObjectType::STROKE:
