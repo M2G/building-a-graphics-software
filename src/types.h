@@ -10,8 +10,8 @@ enum class ObjectType {
 };
 
 struct Point {
-    float: x;
-    float: y;
+    float x;
+    float y;
 };
 
 struct SceneObject {

@@ -23,7 +23,7 @@ SceneObject* Scene::getObject(int id) {
     return (it != m_objects.end()) ? &(*it) : nullptr;
 }
 
-const std::vector<SceneObject>& Scene::getAllObjects() const {
+const std::vector<SceneObject>& Scene::getObjects() const {
     return m_objects;
 }
 
