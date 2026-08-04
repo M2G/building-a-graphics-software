@@ -21,6 +21,28 @@ bool CommandHistory::canUndo() const {
     !m_undoStack.empty();
 };
 
-void CommandHistory::applyForward(const Command& cmd, Scene& scene){}
+void CommandHistory::applyForward(const Command& cmd, Scene& scene) {
+    switch (cmd.type) {
+        case CommandType::ADD:
+            break;
+        case CommandType::DELETE:
+            break;
+        case CommandType::MOVE:
+            break;
+        case CommandType::RESIZE:
+            break;
+    }
+}
 
-void CommandHistory::applyInverse(const Command& cmd, Scene& scene){}
+void CommandHistory::applyInverse(const Command& cmd, Scene& scene) {
+    switch (cmd.type) {
+        case CommandType::ADD:
+            break;
+        case CommandType::DELETE:
+            break;
+        case CommandType::MOVE:
+            break;
+        case CommandType::RESIZE:
+            break;
+    }
+}
