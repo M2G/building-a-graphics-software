@@ -3,3 +3,10 @@
 #include "scene.h"
 #include <vector>
 #include <memory>
+
+enum class CommandType {
+    ADD,
+    DELETE,
+    MOVE,
+    RESIZE
+};
