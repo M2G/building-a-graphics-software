@@ -5,13 +5,21 @@ void CommandHistory::push(Command cmd) {
     m_redoStack.clear();
 };
 
-bool CommandHistory::undo(Scene& scene){}
+bool CommandHistory::undo(Scene& scene) {
+    // m_undoStack.pop_back();
+}
 
-bool CommandHistory::redo(Scene& scene){}
+bool CommandHistory::redo(Scene& scene) {
 
-bool CommandHistory::canRedo() const {}
+}
 
-bool CommandHistory::canUndo() const {};
+bool CommandHistory::canRedo() const {
+    !m_redoStack.empty();
+}
+
+bool CommandHistory::canUndo() const {
+    !m_undoStack.empty();
+};
 
 void CommandHistory::applyForward(const Command& cmd, Scene& scene){}
 
