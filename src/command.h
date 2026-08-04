@@ -10,3 +10,13 @@ enum class CommandType {
     MOVE,
     RESIZE
 };
+
+struct Command {
+    CommandType type;
+    int objectId;
+
+    SceneObject objectSnapshot;
+
+    float beforeX = 0, beforeY = 0, beforeWidth = 0, beforeHeight = 0;
+    float afterX = 0, afterY = 0, afterWidth = 0, afterHeight = 0;
+};
