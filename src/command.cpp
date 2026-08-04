@@ -1,6 +1,9 @@
 #include "command.h"
 
-void CommandHistory::push(Command cmd) {};
+void CommandHistory::push(Command cmd) {
+    m_undoStack.push_back(cmd);
+    m_redoStack.clear();
+};
 
 bool CommandHistory::undo(Scene& scene){}
 
