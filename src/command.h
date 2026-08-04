@@ -1,8 +1,5 @@
-//
-// Created by Matthieu PIERRE LOUIS on 04/08/2026.
-//
-
-#ifndef BUILDING_A_GRAPHICS_SOFTWARE_COMMAND_H
-#define BUILDING_A_GRAPHICS_SOFTWARE_COMMAND_H
-
-#endif //BUILDING_A_GRAPHICS_SOFTWARE_COMMAND_H
+#pragma once
+#include "types.h"
+#include "scene.h"
+#include <vector>
+#include <memory>
