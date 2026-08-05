@@ -6,11 +6,27 @@ void CommandHistory::push(Command cmd) {
 };
 
 bool CommandHistory::undo(Scene& scene) {
-    // m_undoStack.pop_back();
+    if (m_undoStack.empty()) return false;
+
+    Command cmd = m_undoStack.back();
+    m_undoStack.pop_back();
+
+    applyInverse(cmd, scene);
+
+    m_redoStack.push_back(cmd);
+    return true;
 }
 
 bool CommandHistory::redo(Scene& scene) {
+    if (m_redoStack.empty()) return false;
 
+    Command cmd = m_redoStack.back();
+    m_redoStack.pop_back();
+
+    applyInverse(cmd, scene);
+
+    m_undoStack.push_back(cmd);
+    return true;
 }
 
 bool CommandHistory::canRedo() const {
