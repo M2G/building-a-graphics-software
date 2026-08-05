@@ -2,6 +2,7 @@
 #include <cstdio>
 
 int main() {
+    // Tester le add/undo/redo/restore
     Scene scene;
 
     SceneObject rect;
