@@ -10,6 +10,8 @@ public:
 
     bool removeObject(int id);
 
+    void restoreObject(const SceneObject& obj);
+
     SceneObject* getObject(int id);
 
     const std::vector<SceneObject>& getObjects() const;
