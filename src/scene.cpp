@@ -17,6 +17,13 @@ bool Scene::removeObject(int id) {
     return true;
 }
 
+void Scene::restoreObject(const SceneObject& obj) {
+    m_objects.push_back(obj); // garde l'id tel quel, ne génère pas de nouveau id
+    if (obj.id >= m_nextId) {
+        m_nextId = obj.id + 1;
+    }
+}
+
 SceneObject* Scene::getObject(int id) {
     auto it = std::find_if(m_objects.begin(), m_objects.end(),
         [id](const SceneObject& obj) { return obj.id == id; });
