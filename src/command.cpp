@@ -23,18 +23,18 @@ bool CommandHistory::redo(Scene& scene) {
     Command cmd = m_redoStack.back();
     m_redoStack.pop_back();
 
-    applyInverse(cmd, scene);
+    applyForward(cmd, scene);
 
     m_undoStack.push_back(cmd);
     return true;
 }
 
 bool CommandHistory::canRedo() const {
-    !m_redoStack.empty();
+    return !m_redoStack.empty();
 }
 
 bool CommandHistory::canUndo() const {
-    !m_undoStack.empty();
+    return !m_undoStack.empty();
 };
 
 void CommandHistory::applyForward(const Command& cmd, Scene& scene) {

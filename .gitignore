@@ -1,5 +1,6 @@
 .idea
 web
 *.txt
-build
 *.map
+build-*/
+build

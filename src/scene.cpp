@@ -18,10 +18,12 @@ bool Scene::removeObject(int id) {
 }
 
 void Scene::restoreObject(const SceneObject& obj) {
-    m_objects.push_back(obj); // garde l'id tel quel, ne génère pas de nouveau id
+    printf("restoreObject appele avec id=%d\n", obj.id);
+    m_objects.push_back(obj);
     if (obj.id >= m_nextId) {
         m_nextId = obj.id + 1;
     }
+    printf("Taille scene apres restore: %zu\n", m_objects.size());
 }
 
 SceneObject* Scene::getObject(int id) {
