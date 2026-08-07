@@ -79,16 +79,16 @@ void CommandHistory::applyInverse(const Command& cmd, Scene& scene) {
         case CommandType::MOVE: {
             SceneObject* obj = scene.getObject(cmd.objectId);
             if (obj) {
-                obj->x = cmd.afterX;
-                obj->y = cmd.afterY;
+                obj->x = cmd.beforeX;
+                obj->y = cmd.beforeY;
             }
             break;
         }
         case CommandType::RESIZE: {
             SceneObject* obj = scene.getObject(cmd.objectId);
             if (obj) {
-                obj->height = cmd.afterHeight;
-                obj->width = cmd.afterWidth;
+                obj->height = cmd.beforeHeight;
+                obj->width = cmd.beforeWidth;
             }
             break;
         }
